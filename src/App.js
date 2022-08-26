@@ -2,7 +2,7 @@ import "./App.scss";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import { Header, MainContainer } from "./components";
-import { DataItems } from "./components/Main/DataItems";
+
 import classNames from "classnames/bind";
 import styles from "./App.scss";
 
@@ -16,7 +16,7 @@ function App() {
           <Header />
           <main className={cx("main")}>
             <Routes>
-              <Route path="/*" element={<MainContainer slides={DataItems} />} />
+              <Route path="/*" element={<MainContainer />} />
             </Routes>
           </main>
         </div>
