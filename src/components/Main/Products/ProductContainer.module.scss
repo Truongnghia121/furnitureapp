@@ -1,6 +1,9 @@
 .products{
     width: 1170px;
     margin: 0 auto;
+    @media (min-width: 740px) and (max-width: 1024px) {
+        width: auto;
+    }
     .c-list{
         padding: 30px 0;
         overflow: hidden;
@@ -27,11 +30,17 @@
             text-align: center;
             justify-content: space-between;
             grid-template-columns: auto auto auto auto;
+            @media (min-width: 740px) and (max-width: 1024px) {
+                grid-template-columns: auto auto auto;
+            }
             .c-prod_1{
                 width: 262px;
                 height: 436px;
                 position: relative;
                 margin-bottom: 30px;
+                @media (min-width: 740px) and (max-width: 1024px) {
+                    width: 240px;
+                }
                 .c-prod_card{
                     position: relative;
                     overflow: hidden;
@@ -198,5 +207,37 @@
             }
         }
     }
+}
+.content_ourblog{
+    position: relative;
+    background: #f3f3f3;
+    width: 100%;
+    padding: 60px 0;
+    margin: 0;
+    @media (min-width: 1024px) and (max-width: 1239px) {
+        width: 1239px;
+    }
+        .c-ourb{
+            width: 1170px;
+            padding: 0px 15px 0 15px;
+            margin: 0 auto;
+            @media (min-width: 740px) and (max-width: 1024px) {
+               width: auto;
+            }
+            .slides{
+                text-align: center;
+            }
+            .c-ourb_slide{
+                width: 228px;
+                height: auto;
+                text-align: center;
+                .c-ourb_img{
+                    display:inline-block;
+                }
+            }
+            
+        
+    }
   
+    
 }

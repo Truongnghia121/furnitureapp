@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 //
-import SliderContainer from "./Slider/SliderContainer";
+import HomeContainer from "./Home/HomeContainer";
 import ProductContainer from "./Products/ProductContainer";
 
 const cx = classNames.bind(styles);
@@ -13,10 +13,8 @@ const cx = classNames.bind(styles);
 const MainContainer = () => {
   return (
     <>
-      <div className={cx()}>
-        <SliderContainer />
-      </div>
-      <div>
+      <div className={cx("main")}>
+        <HomeContainer />
         <ProductContainer />
       </div>
     </>

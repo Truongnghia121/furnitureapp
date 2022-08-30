@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
@@ -15,6 +15,8 @@ import NavMenu from "../../assets/images//main-menu.jpg";
 const cx = classNames.bind(styles);
 
 const Header = () => {
+  const [isMoblie, setIsMoblie] = useState(false);
+
   return (
     <div className={cx("header")}>
       <div className={cx("container")}>
@@ -136,7 +138,7 @@ const Header = () => {
               </li>
             </HeadlessTippy>
             <li className={cx("h-nav_li")}>
-              <Link className={cx("h-nav_a")} to="">
+              <Link className={cx("h-nav_a")} to="#ourBlog">
                 Our Blog
               </Link>
             </li>
@@ -164,35 +166,24 @@ const Header = () => {
           </motion.ul>
         </div>
         <div className={cx("h-full_nav")}>
-          <div className={cx("hide-on-mobile-tablet")}>
-            <div className={cx("h-nav_right")}>
-              <motion.div
-                whileTap={{ scale: 0.75 }}
-                className={cx("h-right_ww")}
-              >
-                <Link to="" className={cx("h-right_a")}>
-                  <BiSearch className={cx("h-right_icon")} />
-                </Link>
-              </motion.div>
-              <motion.div
-                whileTap={{ scale: 0.75 }}
-                className={cx("h-right_ww")}
-              >
-                <Link to="" className={cx("h-right_a")}>
-                  <RiRefreshLine className={cx("h-right_icon")} />
-                  <span className={cx("h-number")}>0</span>
-                </Link>
-              </motion.div>
-              <motion.div
-                whileTap={{ scale: 0.75 }}
-                className={cx("h-right_ww")}
-              >
-                <Link to="" className={cx("h-right_a")}>
-                  <RiShoppingBag2Line className={cx("h-right_icon")} />
-                  <span className={cx("h-number")}>0</span>
-                </Link>
-              </motion.div>
-            </div>
+          <div className={cx("h-nav_right")}>
+            <motion.div whileTap={{ scale: 0.75 }} className={cx("h-right_ww")}>
+              <Link to="" className={cx("h-right_a")}>
+                <BiSearch className={cx("h-right_icon")} />
+              </Link>
+            </motion.div>
+            <motion.div whileTap={{ scale: 0.75 }} className={cx("h-right_ww")}>
+              <Link to="" className={cx("h-right_a")}>
+                <RiRefreshLine className={cx("h-right_icon")} />
+                <span className={cx("h-number")}>0</span>
+              </Link>
+            </motion.div>
+            <motion.div whileTap={{ scale: 0.75 }} className={cx("h-right_ww")}>
+              <Link to="" className={cx("h-right_a")}>
+                <RiShoppingBag2Line className={cx("h-right_icon")} />
+                <span className={cx("h-number")}>0</span>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>

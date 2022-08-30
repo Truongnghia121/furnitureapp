@@ -1,3 +1,9 @@
+.content{
+    width: 100%;
+    @media (min-width: 1024px) and (max-width: 1239px) {
+        width: 1239px !important;
+    }
+}
 .slides
 {
     position: absolute;
@@ -12,6 +18,7 @@
 }
 .c-img{
     position: relative;
+    
     .c-img_src{
         height: 500px;
         width: 100%;
@@ -35,6 +42,11 @@
 .content-list{
     width: 1170px;
     margin: 0 auto;
+    @media (min-width: 740px) and (max-width: 1024px) {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+  }
     .c-list{
         padding: 30px 0;
         overflow: hidden;
@@ -61,6 +73,11 @@
                 position: relative;
                 width: 380px;
                 height: 275px;
+                @media (min-width: 740px) and (max-width: 1024px) {
+                    width: 340px;
+                    height: 275px;
+                    // padding: 5px 5px;
+              }
                &:hover{
                 cursor: pointer;
                }
@@ -75,7 +92,7 @@
                 .c-cate_item_1{
                     overflow: hidden;
                     .cate-item_img{
-                        width: 380px;
+                        width: 100%;
                         height: 275px;
                         transition: .5s;
                         &:hover{
@@ -128,11 +145,16 @@
                     }
                     .c-cate_item_2{
                         overflow: hidden;
-                       
+                        @media (min-width: 740px) and (max-width: 1024px) {
+                            width: 100%;
+                            height: 275px;
+                            // padding: 5px 5px;
+                      }
                         .cate-item_img1{
-                            width: 760px;
+                           width: 100%;
                             height: 275px;
                             transition: .5s;
+                          
                             &:hover{
                                 transform: scale(1.1) rotate(-3deg);
                             }
@@ -177,13 +199,19 @@
     background: #f3f3f3;
     padding: 140px 0;
     margin: 30px 0;
+    @media (min-width: 1024px) and (max-width: 1239px) {
+        width: 1239px;
+    }
     .in-container{
         width: 1170px;
         margin: 0 auto;
         padding: 0px 15px;
         display:flex;
         justify-content: space-between;
-            position: relative;
+        position: relative;
+        @media (min-width: 740px) and (max-width: 1024px) {
+                width: auto;
+        }
         .in-read{
             width: 585px;
             height: 247px;
@@ -219,7 +247,7 @@
             padding: 0px 15px;
             position: relative;
             .in-img_cus{
-                width: 555px;
+                width: 100%;
                 height: 275px;
             }
             .in-banner_info{
