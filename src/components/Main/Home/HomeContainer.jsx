@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import { motion } from "framer-motion";
 import classNames from "classnames/bind";
 import styles from "./HomeContainer.module.scss";
 import { Link } from "react-router-dom";

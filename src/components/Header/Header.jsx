@@ -4,11 +4,12 @@ import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { RiRefreshLine, RiShoppingBag2Line } from "react-icons/ri";
-import { motion } from "framer-motion";
+import { motion, useSpring } from "framer-motion";
 import { Wrapper as PopperWrapper } from "../../components/index";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+
 //
 import HeadlessTippy from "@tippyjs/react/headless";
 
@@ -25,6 +26,27 @@ const variants = {
 const Header = () => {
   const [show, setShow] = useState(false);
 
+  const springConfig = { damping: 15, stiffness: 300 };
+  const initialScale = 0.5;
+  const opacity = useSpring(0, springConfig);
+  const scale = useSpring(initialScale, springConfig);
+
+  function onMount() {
+    scale.set(1);
+    opacity.set(1);
+  }
+
+  function onHide({ unmount }) {
+    const cleanup = scale.onChange((value) => {
+      if (value <= initialScale) {
+        cleanup();
+        unmount();
+      }
+    });
+
+    scale.set(initialScale);
+    opacity.set(0);
+  }
   return (
     <>
       <div className={cx("header")}>
@@ -54,10 +76,18 @@ const Header = () => {
               <HeadlessTippy
                 // visible={true}
                 interactive={true}
+                animation={true}
+                onMount={onMount}
+                onHide={onHide}
                 placement={"bottom"}
                 className={cx("PopperProd")}
                 render={(attrs) => (
-                  <div className={cx("h-nav-tippy")} tabIndex="-1" {...attrs}>
+                  <motion.div
+                    style={{ scale, opacity }}
+                    className={cx("h-nav-tippy")}
+                    tabIndex="-1"
+                    {...attrs}
+                  >
                     <PopperWrapper>
                       <ul className={cx("h-menu_prod")}>
                         <li className={cx("h-prod_li")}>
@@ -137,7 +167,7 @@ const Header = () => {
                         </li>
                       </ul>
                     </PopperWrapper>
-                  </div>
+                  </motion.div>
                 )}
               >
                 <motion.li whileTap={{ scale: 0.9 }} className={cx("h-nav_li")}>
@@ -152,12 +182,36 @@ const Header = () => {
                 </Link>
               </motion.li>
               <HeadlessTippy
+                // animation={true}
+                // visible={true}
+                animation={true}
+                onMount={onMount}
+                onHide={onHide}
                 interactive={true}
                 placement={"bottom"}
+                className={cx("PopperProd")}
                 render={(attrs) => (
-                  <div className={cx("h-nav-gall")} tabIndex="-1" {...attrs}>
-                    My tippy box
-                  </div>
+                  <motion.div
+                    style={{ scale, opacity }}
+                    className={cx("h-nav-gall")}
+                    tabIndex="-1"
+                    {...attrs}
+                  >
+                    <PopperWrapper>
+                      <ul className={cx("h-nav_gall_ul")}>
+                        <li>
+                          <Link to="#" className={cx("h-gall_link")}>
+                            Chủ đề thời trang
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="#" className={cx("h-gall_link")}>
+                            Chủ đề công nghệ
+                          </Link>
+                        </li>
+                      </ul>
+                    </PopperWrapper>
+                  </motion.div>
                 )}
               >
                 <motion.li whileTap={{ scale: 0.9 }} className={cx("h-nav_li")}>
@@ -177,7 +231,8 @@ const Header = () => {
           <div className={cx("h-full_nav")}>
             <div className={cx("h-nav_right")}>
               <motion.div
-                whileTap={{ scale: 0.75 }}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.2 }}
                 className={cx("h-right_ww")}
               >
                 <Link to="" className={cx("h-right_a")}>
@@ -185,7 +240,8 @@ const Header = () => {
                 </Link>
               </motion.div>
               <motion.div
-                whileTap={{ scale: 0.75 }}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.2 }}
                 className={cx("h-right_ww")}
               >
                 <Link to="" className={cx("h-right_a")}>
@@ -194,7 +250,8 @@ const Header = () => {
                 </Link>
               </motion.div>
               <motion.div
-                whileTap={{ scale: 0.75 }}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.2 }}
                 className={cx("h-right_ww")}
               >
                 <Link to="" className={cx("h-right_a")}>

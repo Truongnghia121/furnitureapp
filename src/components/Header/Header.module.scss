@@ -67,6 +67,32 @@
                 }
             }
             }
+            .h-nav-gall{
+                width: 200px;
+            .h-nav_gall_ul{
+                padding:0px 10px 10px 10px;
+                height: 80px;
+                box-shadow: 0px 2px 5px rgba(55, 45, 45, 0.32);
+                text-transform: none;
+                li{
+                    padding: 10px;
+                    position: relative;
+                    list-style: none;
+                }
+                .h-gall_link{
+                    text-decoration: none;
+                    width: auto;
+                    color: #000;
+                    border-bottom: 1px solid #ddd;
+                    padding: 10px;
+                    &:hover{
+                        color: #c43b68;
+                    }
+                }
+            }
+
+         
+            }
         }
        }  
        .h-full_nav{
@@ -93,12 +119,11 @@
                 display: inline-block;
                 margin-top: 7px;
                 color: #333;
-                :hover{
-                    background: #0dcfff;
-                    border-radius: 4px;
-                 }
                 .h-right_icon{
-                    font-size: 24px;  
+                    font-size: 24px; 
+                    &:hover{
+                        color: #0dcfff;
+                    } 
                 }
                 .h-number{
                     position: absolute;
@@ -200,7 +225,8 @@
 
 .h-menu_prod{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 10px;
     text-transform: none;
     list-style: none;
     font-weight: 600;
